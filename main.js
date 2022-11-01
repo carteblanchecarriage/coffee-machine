@@ -22,6 +22,10 @@ function remaining() {
 }
 
 function calcResources(coffeeType) {
+    let freeCoffee = Math.random() > 0.5;
+    if (freeCoffee) {
+        console.log("You won a free cup of coffee");
+    }
     switch(coffeeType) {
         case "1":
             if (waterHas < espresso.water || beansHas < espresso.beans || cups < 1) {
@@ -31,7 +35,9 @@ function calcResources(coffeeType) {
                 waterHas -= espresso.water;
                 beansHas -= espresso.beans;
                 cups -= 1;
-                money += espresso.money;
+                if (freeCoffee === false) {
+                    money += espresso.money;
+                }
                 console.log("I have enough resources, making you a coffee!")
             }
             break;
@@ -43,7 +49,9 @@ function calcResources(coffeeType) {
                 milkHas -= latte.milk;
                 beansHas -= latte.beans;
                 cups -= 1;
-                money += latte.money;
+                if (freeCoffee === false) {
+                    money += latte.money;
+                }
                 console.log("I have enough resources, making you a coffee!")
             }
             break;
@@ -55,7 +63,9 @@ function calcResources(coffeeType) {
                 milkHas -= cappuccino.milk;
                 beansHas -= cappuccino.beans;
                 cups -= 1;
-                money += cappuccino.money;
+                if (freeCoffee === false) {
+                    money += cappuccino.money;
+                }
                 console.log("I have enough resources, making you a coffee!")
             }
             break;
